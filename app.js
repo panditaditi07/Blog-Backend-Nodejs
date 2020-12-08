@@ -5,7 +5,9 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const USERS = path.join(__dirname, "data", "users.json");
 const userData = JSON.parse(fs.readFileSync(USERS, "utf-8"));
+
 app.use(express.json());
+
 app.get("/users", (req, res) => {
   res.json(userData);
 });
