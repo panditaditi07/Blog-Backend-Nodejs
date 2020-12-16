@@ -10,7 +10,9 @@ const userData = JSON.parse(fs.readFileSync(USERS, "utf-8", null, 2));
 const userRouter = require("./routes/userRoutes");
 
 app.use(express.json());
-app.use("/", userRouter);
+app.use("/", userRouter, (req, res) => {
+  res.send("Blog Backend");
+});
 
 app.listen(PORT, () => {
   console.log(`server running at ${PORT}`);
