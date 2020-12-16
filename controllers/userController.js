@@ -6,7 +6,7 @@ const USERS = path.join(__dirname, "..", "data", "users.json");
 const userData = JSON.parse(fs.readFileSync(USERS, "utf-8"));
 
 const getAllUsers = (req, res, next) => {
-  res.JSON.stringify(userData, null, "\t");
+  res.json(userData, null, "\t");
 };
 const getById = (req, res) => {
   let user = userData.find((user) => {
