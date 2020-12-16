@@ -7,4 +7,4 @@
 3. It gets the data according to the query parameter.
 4. It also updates the data in the file.
 
-[Heroku demo link]("https://blog-backend-nodejs.herokuapp.com/")
+[Heroku demo link](https://blog-backend-nodejs.herokuapp.com/)
