@@ -6,7 +6,7 @@ const USERS = path.join(__dirname, "..", "data", "users.json");
 const userData = JSON.parse(fs.readFileSync(USERS, "utf-8"));
 
 const getAllUsers = (req, res, next) => {
-  res.json(userData);
+  res.JSON.stringify(userData, null, "\t");
 };
 const getById = (req, res) => {
   let user = userData.find((user) => {
@@ -56,7 +56,7 @@ const updateBlog = (req, res, next) => {
   if (user) {
     user.content = req.body.content;
     user.title = req.body.title;
-    fs.writeFile(USERS, JSON.stringify(userData, null, 2), (err) => {
+    fs.writeFile(USERS, JSON.stringify(userData, null, "\t"), (err) => {
       if (err) {
         res.status(500).json({
           status: "unsuccessful",
