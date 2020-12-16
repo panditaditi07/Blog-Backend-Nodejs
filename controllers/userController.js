@@ -1,7 +1,6 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-var pretty = require("express-prettify");
 
 const USERS = path.join(__dirname, "..", "data", "users.json");
 const userData = JSON.parse(fs.readFileSync(USERS, "utf-8"));
