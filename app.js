@@ -1,19 +1,15 @@
 const express = require("express");
-
+const cors = require("cors");
 const app = express();
-const fs = require("fs");
-const path = require("path");
-const PORT = process.env.PORT || 3000;
-const USERS = path.join(__dirname, "data", "users.json");
-const userData = JSON.parse(fs.readFileSync(USERS, "utf-8", null, 2));
 
-const userRouter = require("./routes/userRoutes");
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+const blogRouter = require("./routes/userRoutes");
 
 app.use(express.json());
-app.use("/", userRouter, (req, res) => {
-  res.send("Blog Backend");
-});
+app.use("/blogs", blogRouter);
 
-app.listen(PORT, () => {
-  console.log(`server running at ${PORT}`);
+app.listen(5000, () => {
+  console.log("server running on PORT 5000");
 });
