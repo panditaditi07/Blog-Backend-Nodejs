@@ -6,20 +6,29 @@ const USERS = path.join(__dirname, "..", "data", "users.json");
 const userData = JSON.parse(fs.readFileSync(USERS, "utf-8"));
 
 const getAllUsers = (req, res, next) => {
-  res.json(userData);
+  if (userData.length == 0) {
+    res.status(404).json({
+      status: "Unsuccessful",
+      data: [],
+    });
+  }
+  res.status(200).json({
+    status: "Successful",
+    data: [userData],
+  });
 };
-const getById = (req, res) => {
+const getById = (req, res, next) => {
   let user = userData.find((user) => {
     return user.id === req.params.id;
   });
   if (user) {
     res.status(200).json({
-      status: "successful",
-      data: user,
+      status: "Successful",
+      data: [user],
     });
   } else {
     res.status(200).json({
-      status: "User not found",
+      status: "Blog not found",
     });
   }
   next();

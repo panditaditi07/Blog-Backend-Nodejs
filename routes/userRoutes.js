@@ -7,7 +7,7 @@ const {
   patchRequest,
   updateBlog,
 } = require("../controllers/userController");
-router.route("/users").get(getAllUsers);
+router.route("/blogs").get(getAllUsers);
 router.route("/getByQuery").get(getByQuery);
-router.route("/users/:id").get(getById).patch(patchRequest, updateBlog);
+router.route("/blogs/:id").get(getById).patch(patchRequest, updateBlog);
 module.exports = router;
