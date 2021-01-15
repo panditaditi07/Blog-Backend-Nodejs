@@ -18,20 +18,20 @@ const getAllUsers = (req, res, next) => {
   });
 };
 const getById = (req, res, next) => {
-  let user = userData.find((user) => {
-    return user.id === req.params.id;
+  let blogs = userData.find((blog) => {
+    return blog.id === req.params.id;
   });
-  if (user) {
+  if (blogs) {
     res.status(200).json({
       status: "Successful",
-      data: [user],
+      data: blogs,
     });
   } else {
-    res.status(200).json({
-      status: "Blog not found",
+    res.status(404).json({
+      status: "Unsuccessful",
+      message: "Blog not found",
     });
   }
-  next();
 };
 
 const getByQuery = (req, res) => {
